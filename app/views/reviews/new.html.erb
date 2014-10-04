@@ -1,0 +1,5 @@
+<header>
+    <h1>New Review for <%= link_to @movie.title, movie_path(@movie) %></h1>
+</header>
+<%= render "shared/errors", object: @review %>
+<%= render "form" %>

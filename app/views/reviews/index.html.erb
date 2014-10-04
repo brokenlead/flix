@@ -1,0 +1,12 @@
+<header>
+    <h1>Reviews for <%= link_to @movie.title, @movie %></h1>
+</header>
+<ol id="reviews">
+    <% @reviews.each do |r| %>
+    <li>
+        <strong><%= pluralize(r.stars, "Star") %></strong> <%= r.name %> said: <%= r.comment %><br>
+        <em><%= time_ago_in_words(r.created_at) %> ago</em><br>
+        <%= link_to "Delete", movie_review_path(@movie, r), method: :delete, data: {confirm: "Delete review?"} %>
+    </li>
+    <% end %>
+</ol>
