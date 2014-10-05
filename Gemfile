@@ -58,3 +58,7 @@ end
 group :test do
   gem "capybara", "2.1.0"
 end
+
+# manage file uploads
+gem 'paperclip'
+gem 'aws-sdk'
