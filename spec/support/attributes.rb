@@ -9,7 +9,7 @@ def movie_attributes(overrides = {})
     director: "Jon Favreau",
     duration: "126 min",
     image: open("#{Rails.root}/app/assets/images/ironman.jpg")
-  }.merge(overrides)
+    }.merge(overrides)
 end
 
 def review_attributes(overrides = {})
@@ -17,5 +17,14 @@ def review_attributes(overrides = {})
     name: "Roger Ebert",
     stars: 3,
     comment: "I laughed, I cried, I spilled my popcorn!"
-  }.merge(overrides)
+    }.merge(overrides)
+end
+
+def user_attributes(overrides = {})
+    {
+        name: "John Doe",
+        email: "john.doe@user.com",
+        password: "secret",
+        password_confirmation: "secret"
+    }.merge(overrides)
 end
