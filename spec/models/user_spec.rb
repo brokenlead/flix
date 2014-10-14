@@ -10,6 +10,30 @@ describe "A user" do
     expect(user.errors[:name].any?).to eq(true)
   end
 
+  it "requires a username" do
+    user = User.new(username: "")
+    user.valid?
+    expect(user.errors[:username].any?).to eq(true)
+  end
+
+  it "accepts a properly formatted username" do
+    usernames = %w[john123 John123 123 john]
+    usernames.each do |username|
+      user = User.new(username: username)
+      user.valid?
+      expect(user.errors[:username].any?).to eq(false)
+    end
+  end
+
+  it "rejects a badly formatted username" do
+    usernames = ["john++123", "john 123"]
+    usernames.each do |username|
+      user = User.new(username: username)
+      user.valid?
+      expect(user.errors[:username].any?).to eq(true)
+    end
+  end
+
   it "requires an email" do
     user = User.new(email: "")
 

@@ -1,0 +1,20 @@
+<article id="user">
+    <header id="content-header">
+        <h1><%= @user.name %></h1>
+        <h2><%= mail_to @user.email %></h2>
+    </header>
+    <h3>User Name</h3>
+    <p><%= @user.username %></p>
+    <h3>Member since</h3>
+    <p><%= format_member_since(@user) %></p>
+    <footer>
+        <nav>
+            <%= link_to "Edit", edit_user_path(@user), class: "button" %>
+            <%= link_to "Delete",
+                @user,
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class: "button" %>
+        </nav>
+    </footer>
+</article>
