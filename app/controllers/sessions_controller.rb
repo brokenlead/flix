@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
     def new
-        
+        # display form only, see view
     end
     def create
         if user = User.authenticate(params[:login], params[:password])
