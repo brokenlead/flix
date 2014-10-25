@@ -12,10 +12,15 @@ class ApplicationController < ActionController::Base
   end
 
   def require_signin
+    session[:intended_url] = request.url
     unless current_user
         redirect_to new_session_url, alert: "Please sign in"    
     end
   end
-
   helper_method :current_user
+
+  def current_user? (user)
+    current_user == user
+  end
+  helper_method :current_user?
 end

@@ -3,6 +3,7 @@ require "spec_helper"
 describe "Editing a user" do
     it "updates the user account" do
         user = User.create!(user_attributes)
+        sign_in(user)
         visit user_url(user)
         click_link "Edit"
         expect(current_path).to eq(edit_user_path(user))
@@ -15,6 +16,7 @@ describe "Editing a user" do
 
     it "does not update the user account if there is an error" do
         user = User.create!(user_attributes)
+        sign_in(user)
         visit edit_user_url(user)
         fill_in "Name", with: ""
         click_button "Update Account"
