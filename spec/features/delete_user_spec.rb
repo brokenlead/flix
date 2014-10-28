@@ -1,8 +1,14 @@
 require "spec_helper"
 
 describe "Deleting a user" do
-    it "removes the user from the list" do
+    it "does NOT remove the user from the list when the signed in user is not an admin" do
         user = User.create!(user_attributes)
+        sign_in(user)
+        visit user_path(user)
+        expect(page).not_to have_link('Delete')
+    end
+    it "removes the user from the list when the signed in user is an admin" do
+        user = User.create!(user_attributes(admin: true))
         sign_in(user)
         visit user_path(user)
         click_link "Delete"
