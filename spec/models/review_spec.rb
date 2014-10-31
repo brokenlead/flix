@@ -10,8 +10,6 @@ describe "A review" do
     expect(review.movie).to eq(movie)
   end
 
-  it "belongs to a user"
-
   it "with example attributes is valid" do
     review = Review.new(review_attributes)
 

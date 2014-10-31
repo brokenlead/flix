@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe "Navigating movies" do
+
+  before do
+      @user = User.create!(user_attributes)
+      sign_in(@user)
+  end
   
   it "allows navigation from the detail page to the listing page" do
 

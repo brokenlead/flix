@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe "Viewing an individual movie" do
+
+  before do
+      @user = User.create!(user_attributes)
+      sign_in(@user)
+  end
+
   it "shows the movie's details" do
     movie = Movie.create(movie_attributes)
 
