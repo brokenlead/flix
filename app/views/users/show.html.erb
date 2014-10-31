@@ -8,6 +8,11 @@
     <p><%= mail_to @user.email %></p>
     <h3>Member since</h3>
     <p><%= format_member_since(@user) %></p>
+    <h3>Reviews</h3>
+    <% @reviews.each do |review| %>
+    <p><%= link_to review.movie.title, review.movie %> - <%= review.stars %> stars<br />
+    <%= review.comment %></p>
+    <% end %>
     <footer>
         <nav>
             <% if current_user? (@user) %>
