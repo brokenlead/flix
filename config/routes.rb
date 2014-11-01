@@ -1,4 +1,6 @@
 Flix::Application.routes.draw do
+  resources :favorites
+
   root "movies#index"
   resource :session
   get "signin" => "sessions#new"

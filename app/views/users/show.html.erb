@@ -8,10 +8,20 @@
     <p><%= mail_to @user.email %></p>
     <h3>Member since</h3>
     <p><%= format_member_since(@user) %></p>
+    <% if @reviews.any? %>
     <h3>Reviews</h3>
     <% @reviews.each do |review| %>
     <p><%= link_to review.movie.title, review.movie %> - <%= review.stars %> stars<br />
     <%= review.comment %></p>
+    <% end %>
+    <% end %>
+    <% if @favorite_movies.any? %>
+    <h3>Favorite Movies</h3>
+    <ul>
+        <% @favorite_movies.each do |movie| %>
+        <li><%= link_to movie.title, movie %></li>
+        <% end %>
+    </ul>
     <% end %>
     <footer>
         <nav>

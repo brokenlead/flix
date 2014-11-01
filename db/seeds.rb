@@ -103,3 +103,8 @@ Movie.create!([
     total_gross: 387_623_910
   }
 ])
+
+# movie = Movie.find_by(title: "Iron Man")
+# user1 = User.new()
+
+# movies.first.fans << user1
