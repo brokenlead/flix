@@ -1,5 +1,4 @@
 Flix::Application.routes.draw do
-  resources :favorites
 
   root "movies#index"
   resource :session
@@ -8,5 +7,6 @@ Flix::Application.routes.draw do
   resources :users
   resources :movies do
       resources :reviews
+      resources :favorites
   end
 end
