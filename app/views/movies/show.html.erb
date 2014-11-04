@@ -42,8 +42,8 @@
     <%= format_average_stars_for(@movie) %>
   </p>
 
+  <h3><%= pluralize(@fans.size, 'fan') %></h3>
   <% if @fans.any? %>
-  <h3><%= pluralize(@fans.size, 'Fan') %></h3>
   <ul>
     <% @fans.each do |user| %>
     <li><%= link_to user.name, user %></li>

@@ -4,12 +4,12 @@ class FavoritesController < ApplicationController
 
     def create
         @movie.favorites.create!(user: current_user)
-        redirect_to @movie, notice: "Saved your favorite!"
+        redirect_to @movie, notice: "Thanks for faving!"
     end
 
     def destroy
         current_user.favorites.find_by(movie: @movie).destroy
-        redirect_to @movie, notice: "Saved your changes"
+        redirect_to @movie, notice: "Sorry you unfaved it!"
     end
 
     private
