@@ -1,0 +1,7 @@
+<header id="content-header">
+    <h1>Update Genre</h1>
+</header>
+<%= render 'form' %>
+<% if @movies %>
+<h3><%= pluralize(@movies.size, "Movie") %></h3>
+<% end %>

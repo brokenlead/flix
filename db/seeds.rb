@@ -104,6 +104,17 @@ Movie.create!([
   }
 ])
 
+Genre.create!(name: "Action")
+Genre.create!(name: "Comedy")
+Genre.create!(name: "Drama")
+Genre.create!(name: "Romance")
+Genre.create!(name: "Thriller")
+Genre.create!(name: "Fantasy")
+Genre.create!(name: "Documentary")
+Genre.create!(name: "Adventure")
+Genre.create!(name: "Animation")
+Genre.create!(name: "Sci-Fi")
+
 # movie = Movie.find_by(title: "Iron Man")
 # user1 = User.new()
 

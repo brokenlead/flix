@@ -1,0 +1,9 @@
+<header id="content-header">
+    <h1><%= pluralize(@genres.size, "Genre") %></h1>
+</header>
+<p><%= link_to "+ Add Genre", new_genre_path, class: "button" %></p>
+<ul>
+    <% @genres.each do |genre| %>
+    <li><%= link_to genre.name, genre_path(genre) %></li>
+    <% end %>
+</ul>

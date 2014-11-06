@@ -60,4 +60,9 @@ input[type="submit"].button {
     color: $secondary-text-color;
     background: $primary-background-color;
   }
+
 }
+.button.delete {
+    color: $warning-text-color;
+    background: $warning-background-color;
+  }

@@ -9,4 +9,5 @@ Flix::Application.routes.draw do
       resources :reviews
       resources :favorites
   end
+  resources :genres
 end

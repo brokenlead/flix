@@ -1,0 +1,20 @@
+<%= form_for(@genre) do |f| %>
+<%= render "shared/errors", object: @genre %>
+<fieldset>
+    <ol>
+        <li class="required">
+            <%= f.label :name %>
+            <%= f.text_field :name, size: 40, autofocus: true %>
+        </li>
+        <li>
+            <% if @genre.new_record? %>
+            <%= f.submit "Add Genre" %>
+            <% else %>
+            <%= f.submit "Update", class: "button" %>
+            <%= link_to "Delete", @genre, method: :delete, class: "button delete", data: {confirm: 'Are you sure?'} %>
+            <% end %>
+            <%= link_to "Cancel", genres_path %>
+        </li>
+    </ol>
+</fieldset>
+<% end %>
