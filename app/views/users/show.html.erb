@@ -1,3 +1,5 @@
+<% title @user.name %>
+
 <article id="user">
     <header id="content-header">
         <%= profile_image_for(@user) %>
@@ -15,14 +17,7 @@
     <%= review.comment %></p>
     <% end %>
     <% end %>
-    <% if @favorite_movies.any? %>
-    <h3>Favorite Movies</h3>
-    <ul>
-        <% @favorite_movies.each do |movie| %>
-        <li><%= link_to movie.title, movie %></li>
-        <% end %>
-    </ul>
-    <% end %>
+
     <footer>
         <nav>
             <% if current_user? (@user) %>
@@ -38,3 +33,14 @@
         </nav>
     </footer>
 </article>
+
+<% content_for :side do %>
+    <% if @favorite_movies.any? %>
+    <h3>Favorite Movies</h3>
+    <ul>
+        <% @favorite_movies.each do |movie| %>
+        <li><%= link_to movie.title, movie %></li>
+        <% end %>
+    </ul>
+    <% end %>
+<% end %>

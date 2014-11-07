@@ -4,6 +4,7 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.released
+    @genres = Genre.all.order(:name)
   end
 
   def show
