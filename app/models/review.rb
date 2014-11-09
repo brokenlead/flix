@@ -6,4 +6,6 @@ class Review < ActiveRecord::Base
 
   validates :comment, length: {minimum: 4}
   validates :stars, inclusion: {in: STARS, message: "must be between 1 and 5"}
+
+  scope :past_n_days, ->(num_days=7) { where("created_at <= ?", num_days.days.ago) }
 end
