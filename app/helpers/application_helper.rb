@@ -9,4 +9,11 @@ module ApplicationHelper
             "Flix"
         end
     end
+    def nav_link_to(title, url)
+        classes = %w(button)
+
+        classes << :active if current_page? url
+
+        link_to title, url, class: classes.join(' ')
+    end
 end

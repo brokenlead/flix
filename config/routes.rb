@@ -5,6 +5,7 @@ Flix::Application.routes.draw do
   get "signin" => "sessions#new"
   get "signup" => "users#new"
   resources :users
+  get "movies/filter/:scope" => "movies#index", as: "filtered_movies"
   resources :movies do
       resources :reviews
       resources :favorites

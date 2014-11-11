@@ -145,6 +145,12 @@ aside#sidebar {
           color: #000;
         }
 
+        a.active {
+          font-weight: bold;
+          background-color: #237CBE;
+          color: #FFF;
+        }
+
       }
     }
   }
