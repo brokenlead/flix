@@ -54,4 +54,10 @@ describe "Viewing an individual movie" do
     visit movie_url(movie)
     expect(page).to have_title("Flix - #{movie.title}")
   end
+
+  it "has a SEO-friendly url" do
+    movie = Movie.create!(movie_attributes(title: "X Men"))
+    visit movie_url(movie)
+    expect(current_path).to eq("/movies/x-men")
+  end
 end

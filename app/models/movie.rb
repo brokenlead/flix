@@ -14,7 +14,11 @@ class Movie < ActiveRecord::Base
 
   RATINGS = %w(G PG PG-13 R NC-17)
 
-  validates :title, :released_on, :duration, presence: true
+  before_validation :generate_slug
+
+  validates :title, uniqueness: true, presence: true
+  validates :released_on, :duration, presence: true
+  validates :slug, uniqueness: true, presence: true
   validates :description, length: {minimum: 25}
   validates :total_gross, numericality: {greater_than_or_equal_to: 0}
   validates :rating, inclusion: {in: RATINGS}
@@ -46,5 +50,13 @@ class Movie < ActiveRecord::Base
 
   def has_reviews?
     not reviews.count.zero?
+  end
+
+  def to_param
+    slug
+  end
+
+  def generate_slug
+    self.slug ||= title.parameterize if title
   end
 end
