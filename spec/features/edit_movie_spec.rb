@@ -6,6 +6,18 @@ describe "Editing a movie" do
     admin = User.create!(user_attributes(admin: true))
     sign_in(admin)
   end
+
+  it "updates the movie slug" do
+    movie = Movie.create!(movie_attributes)
+    old_slug = movie.title.parameterize
+    new_slug = old_slug + '-updated'
+    visit movie_url(movie)
+    click_link 'Edit'
+    expect(current_path).to eq(edit_movie_path(movie))
+    expect(find_field('Slug').value).to eq(old_slug)
+    fill_in 'Slug', with: new_slug
+    click_button 'Update Movie'
+  end
   
   it "updates the movie and shows the movie's updated details" do
     movie = Movie.create(movie_attributes)

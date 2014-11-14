@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
     has_many :favorites, dependent: :destroy
     has_many :favorite_movies, through: :favorites, source: :movie
 
+    before_save :format_username
+
     validates :name, presence: true
     validates :email, presence: true,
         format: /\A\S+@\S+\z/,
@@ -25,5 +27,13 @@ class User < ActiveRecord::Base
     def self.authenticate(login, password)
         user = User.find_by(email: login) || User.find_by(username: login)
         user && user.authenticate(password)
+    end
+
+    def to_param
+        username
+    end
+
+    def format_username
+        self.username = username.parameterize
     end
 end

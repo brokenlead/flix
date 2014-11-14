@@ -61,8 +61,9 @@ private
   def set_movie
     @movie = Movie.find_by!(slug: params[:id])
   end
+  
   def movie_params
-    params.require(:movie).permit(:title, :description, :rating, :released_on, :total_gross, :cast, :director, :duration, :image, genre_ids: [])
+    params.require(:movie).permit(:title, :description, :rating, :released_on, :total_gross, :cast, :director, :duration, :image, :slug, genre_ids: [])
   end
 end
 
